@@ -6,7 +6,7 @@ class ObservableAppState extends EventEmitter {
 
   // AppState.js
   /** @type {import('./models/Jumble.js').Jumble[]} */
-  jumbles = [
+  Jumbles = [
     new Jumble({
       name: '🐒 Jumble',
       body: "Monkeys go bananas for fruit salad, especially when it's filled with juicy pineapples."

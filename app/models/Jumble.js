@@ -11,10 +11,13 @@ export class Jumble {
     this.endTime = null
   }
 
-  getListTemplate() {
+  get listTemplate() {
     return /*html*/
     `
       <li>${this.name}</li>
+      <li>${this.body}</li>
     `
   }
+
+
 }
