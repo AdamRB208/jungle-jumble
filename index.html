@@ -24,12 +24,36 @@
   </header>
 
   <main>
-    <section class="container">
+    <section class="container-fluid">
       <div class="row">
-        <div class="col-md-8">
-          <div id="jumbles-list">
-
+        <div class="col-md-3">
+          <div class="mb-3 heading-card rounded">Jungle Jumble!!🦁🐅🐒🦍🦧</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div id="jumble-game">
+            <!-- game form draws here -->
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 jumbles-card rounded">
+          <div id="jumbles-list">
+            <!-- Jumbles list draws here -->
+          </div>
+          <form action="">
+            <div>create jumble</div>
+            <div>
+              <input type="text" class="form-control" id="jumble-name" placeholder="Name" name="name" required>
+              <label for="name">Name</label>
+            </div>
+            <div>
+              <textarea class="form-control" placeholder="Jumble Body" id="jumble-body" name="body" required></textarea>
+              <label for="jumble-body">Jumble</label>
+            </div>
+            <button class="btn btn-warning w-100 mb-2" type="submit">create <i class="mdi mdi-arrow-right"></i></button>
+          </form>
         </div>
       </div>
     </section>
