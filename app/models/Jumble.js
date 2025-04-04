@@ -6,8 +6,8 @@ export class Jumble {
     this.id = generateId()
     this.name = data.name
     this.body = data.body
-    this.fastestTime = null
-    this.startTime = null
+    this.fastestTime = data.fastestTime || Infinity
+    this.startTime = 0
     this.endTime = null
   }
 
@@ -15,14 +15,14 @@ export class Jumble {
     return /*html*/`
       <div class="d-md-flex justify-content-between align-items-center mb-2">
         <div>
-          <button class="btn btn-warning fw-bold mt-2" type="button">
+          <button onclick="app.JumbleController.setActiveJumble('${this.id}')" class="btn btn-warning fw-bold mt-2" type="button" title="${this.startButtonTitle}">
             start
           </button>
           <div>${this.name}</div>
         </div>
-        <div>
-          <span class="fw-bold me-2" title="Fastest time is: ">Fastest time in seconds</span>
-          <span class="fw-bold">Fastest WPM</span>
+        <div class="${this.fastestTime == Infinity ? 'd-none' : ''}">
+          <span class="fw-bold me-2" title="Fastest time is ${this.fastestTimeInSeconds}">${this.fastestTimeInSeconds}</span>
+          <span class="fw-bold">${this.fastestWordsPerMinute.toFixed(1)} WPM</span>
         </div>
       </div>
     `
@@ -71,6 +71,22 @@ export class Jumble {
     ]
     const randomIndex = Math.floor(Math.random() * emojis.length)
     return emojis[randomIndex]
-
   }
+
+  get fastestTimeInSeconds() {
+    return this.fastestTime / 1000
+  }
+
+  get wordCount() {
+    return this.body.split('').length
+  }
+
+  get fastestWordsPerMinute() {
+    return this.wordCount * 60 / this.fastestTimeInSeconds
+  }
+
+  get startButtonTitle() {
+    return `Start the ${this.name}! This Jumble has a total of ${this.wordCount} words!`
+  }
+
 }
