@@ -5,36 +5,38 @@ import { loadState, saveState } from "../utils/Store.js"
 
 class JumblesService {
 
+
   /**
    * @param {string} jumbleId
   */
   setActiveJumble(jumbleId) {
     const foundJumble = AppState.Jumbles.find(jumble => jumble.id == jumbleId)
     AppState.activeJumble = foundJumble
-    this.startGame()
+    // this.startGame()
   }
 
-  startGame() {
-    AppState.activeJumble.startTime = Date.now()
-  }
+  // startGame() {
+  //   AppState.activeJumble.startTime = Date.now()
+  // }
 
-  endGame() {
-    const activeJumble = AppState.activeJumble
-    const timeElapsed = Date.now() - activeJumble.startTime
-    if (timeElapsed < activeJumble.fastestTime) {
-      activeJumble.fastestTime = timeElapsed
-      this.saveJumbles()
-    }
-  }
+  // endGame() {
+  //   const activeJumble = AppState.activeJumble
+  //   const timeElapsed = Date.now() - activeJumble.startTime
+  //   if (timeElapsed < activeJumble.fastestTime) {
+  //     activeJumble.fastestTime = timeElapsed
+  //     this.saveJumbles()
+  //   }
+  // }
 
-  saveJumbles() {
-    saveState('jumbles', AppState.Jumbles)
-  }
 
   createJumble(jumbleData) {
     const jumble = new Jumble(jumbleData)
     AppState.Jumbles.push(jumble)
     this.saveJumbles()
+  }
+
+  saveJumbles() {
+    saveState('jumbles', AppState.Jumbles)
   }
 
   loadJumbles() {

@@ -8,8 +8,9 @@ import { setHTML } from "../utils/Writer.js"
 export class JumblesController {
   constructor() {
     console.log('Jumbles Controller Loaded!')
-    console.log('Jumbles Controller', AppState.Jumbles)
     AppState.on('activeJumble', this.drawActiveJumble)
+    console.log('Jumbles Controller', AppState.Jumbles)
+    console.log('Jumbles Controller', AppState.activeJumble)
     this.drawActiveJumble()
     this.drawJumbles()
     jumblesService.loadJumbles()
@@ -25,12 +26,19 @@ export class JumblesController {
     }
   }
 
+  // drawJumbles() {
+  //   const jumbles = AppState.Jumbles
+  //   let jumblesContent = ''
+  //   jumbles.forEach(jumble => jumblesContent += jumble.listTemplate)
+  //   const jumblesElem = document.getElementById('jumbles-list')
+  //   jumblesElem.innerHTML = jumblesContent
+  // }
+
   drawJumbles() {
     const jumbles = AppState.Jumbles
-    let jumblesContent = ''
-    jumbles.forEach(jumble => jumblesContent += jumble.listTemplate)
-    const jumblesElem = document.getElementById('jumbles-list')
-    jumblesElem.innerHTML = jumblesContent
+    let jumblesHTML = ''
+    jumbles.forEach(jumble => jumblesHTML += jumble.listTemplate)
+    setHTML('jumbles-list', jumblesHTML)
   }
 
   /**
