@@ -7,10 +7,8 @@ import { setHTML } from "../utils/Writer.js"
 
 export class JumblesController {
   constructor() {
-    console.log('Jumbles Controller Loaded!')
     AppState.on('activeJumble', this.drawActiveJumble)
-    console.log('Jumbles Controller', AppState.Jumbles)
-    console.log('Jumbles Controller', AppState.activeJumble)
+    AppState.on('Jumbles', this.drawJumbles)
     this.drawActiveJumble()
     this.drawJumbles()
     jumblesService.loadJumbles()
