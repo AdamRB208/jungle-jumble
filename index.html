@@ -26,10 +26,12 @@
   <main>
     <section class="container-fluid">
       <div class="row">
-        <div class="col-md-3">
-          <div class="mb-3 heading-card rounded">Jungle Jumble!!🦁🐅🐒🦍🦧</div>
+        <div class="col-md-4">
+          <div class="mb-3 heading-card rounded text-center p-3 fs-3">Jungle Jumble!!🦁🐅🐒🦍🦧</div>
         </div>
       </div>
+    </section>
+    <section class="container-fluid">
       <div class="row">
         <div class="col-md-4">
           <div id="jumble-game">
@@ -37,11 +39,15 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-8 jumbles-card rounded">
-          <div id="jumbles-list">
-            <!-- Jumbles list draws here -->
-          </div>
+      <div class="col-md-6 jumbles-card rounded ">
+        <div id="jumbles-list">
+          <!-- Jumbles list draws here -->
+        </div>
+      </div>
+    </section>
+    <section class="container-fluid">
+      <div class="row create-row">
+        <div class="col-md-6 create-jumbles-card rounded">
           <form onsubmit="app.JumblesController.createJumble()">
             <div>create jumble</div>
             <div>

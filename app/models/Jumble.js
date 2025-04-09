@@ -19,10 +19,10 @@ export class Jumble {
     return /*html*/`
       <div class="d-md-flex justify-content-between align-items-center mb-2">
         <div>
-          <button onclick="app.JumblesController.setActiveJumble('${this.id}')" class="btn btn-warning fw-bold mt-2" type="button" title="${this.startButtonTitle}">
+          <button onclick="app.JumblesController.setActiveJumble('${this.id}')" class="btn btn-warning fw-bold mt-2 ms-2" type="button" title="${this.startButtonTitle}">
             start
           </button>
-          <div>${this.name}</div>
+          <div class="ms-2 mt-1">${this.name}</div>
         </div>
         <div class="${this.fastestTime == Infinity ? 'd-none' : ''}">
           <span class="fw-bold me-2" title="Fastest time is ${this.fastestTimeInSeconds}">${this.fastestTimeInSeconds}</span>

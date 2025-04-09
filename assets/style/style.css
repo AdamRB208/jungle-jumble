@@ -8,9 +8,12 @@ body {
 main {
   flex-grow: 1;
   display: flex;
+  flex-direction: column;
   place-content: center;
   align-items: center;
   background-image: url('https://images.unsplash.com/photo-1470058869958-2a77ade41c02?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8anVuZ2xlfGVufDB8fDB8fHww');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #pop-toast-container {
@@ -26,4 +29,14 @@ main {
 
 .heading-card {
   background-color: rgba(255, 255, 255, 0.564);
+}
+
+.create-jumbles-card {
+  background-color: rgba(255, 255, 255, 0.564);
+}
+
+.create-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
 }
