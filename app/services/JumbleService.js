@@ -7,26 +7,39 @@ class JumblesService {
 
 
   /**
+   * @param {string} jumbleText
+   */
+  showJumbleInput(jumbleText) {
+    if (jumbleText != AppState.activeJumble.body) {
+      return
+    }
+    this.endGame()
+  }
+
+
+  /**
    * @param {string} jumbleId
   */
   setActiveJumble(jumbleId) {
     const foundJumble = AppState.Jumbles.find(jumble => jumble.id == jumbleId)
     AppState.activeJumble = foundJumble
-    // this.startGame()
+    this.startGame()
   }
 
-  // startGame() {
-  //   AppState.activeJumble.startTime = Date.now()
-  // }
+  startGame() {
+    AppState.activeJumble.startTime = Date.now()
+    console.log('game started')
+  }
 
-  // endGame() {
-  //   const activeJumble = AppState.activeJumble
-  //   const timeElapsed = Date.now() - activeJumble.startTime
-  //   if (timeElapsed < activeJumble.fastestTime) {
-  //     activeJumble.fastestTime = timeElapsed
-  //     this.saveJumbles()
-  //   }
-  // }
+  endGame() {
+    console.log('game ended')
+    const activeJumble = AppState.activeJumble
+    const timeElapsed = Date.now() - activeJumble.startTime
+    if (timeElapsed < activeJumble.fastestTime) {
+      activeJumble.fastestTime = timeElapsed
+      this.saveJumbles()
+    }
+  }
 
 
   createJumble(jumbleData) {

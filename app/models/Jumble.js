@@ -37,12 +37,12 @@ export class Jumble {
       <div class="jumbles-card mb-4">
         <h3 class="d-flex justify-content-between">
           <span>${this.name}</span>
-          <span>Fastest Time In Seconds</span>
+          <span class="${this.fastestTime == Infinity ? 'd-none' : ''}">Fastest Time ${this.fastestTimeInSeconds.toFixed(1)}s</span>
         </h3>
         <p>${this.body}</p>
       </div>
       <div class="jumble-card">
-        <form>
+        <form onsubmit="app.JumblesController.showJumbleInput()">
           <div class="form-floating mb-2">
             <textarea class="form-control" placeholder="Start Typing!!!!" id="jumble-game-input" name="jumbleGameBody"></textarea>
             <label for="floatingTextarea">Start Typing!!!</label>

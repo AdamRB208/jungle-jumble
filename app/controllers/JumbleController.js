@@ -24,14 +24,6 @@ export class JumblesController {
     }
   }
 
-  // drawJumbles() {
-  //   const jumbles = AppState.Jumbles
-  //   let jumblesContent = ''
-  //   jumbles.forEach(jumble => jumblesContent += jumble.listTemplate)
-  //   const jumblesElem = document.getElementById('jumbles-list')
-  //   jumblesElem.innerHTML = jumblesContent
-  // }
-
   drawJumbles() {
     const jumbles = AppState.Jumbles
     let jumblesHTML = ''
@@ -53,4 +45,12 @@ export class JumblesController {
     jumblesService.createJumble(jumbleData)
     formElem.reset()
   }
+
+  showJumbleInput() {
+    event.preventDefault()
+    const formElem = event.target
+    const jumbleText = formElem.jumbleGameBody.value
+    jumblesService.showJumbleInput(jumbleText)
+  }
+
 }
