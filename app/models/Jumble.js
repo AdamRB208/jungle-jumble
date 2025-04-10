@@ -47,7 +47,7 @@ export class Jumble {
             <textarea class="form-control" placeholder="Start Typing!!!!" id="jumble-game-input" name="jumbleGameBody"></textarea>
             <label for="floatingTextarea">Start Typing!!!</label>
           </div>
-          <button class="btn btn-warning w-100 mb-2">Submit</button>
+          <button class="btn btn-warning w-100 mb-2" type="button">Submit</button>
         </form>
       </div>
     `
