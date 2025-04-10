@@ -48,6 +48,8 @@ export class JumblesController {
 
   showJumbleInput() {
     event.preventDefault()
+    console.log('is this running');
+
     const formElem = event.target
     const jumbleText = formElem.jumbleGameBody.value
     jumblesService.showJumbleInput(jumbleText)
